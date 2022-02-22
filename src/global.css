@@ -41,6 +41,19 @@ input:focus {
     border: 2px solid #ff3e00;
 }
 
+form, article {
+    display: flex;
+    column-gap: 1.2rem;
+    justify-content: center;
+}
+.timeinp {
+    max-width: 5rem;
+}
+.nowbtn {
+    padding: 0.5em 1em !important;
+    max-width: min-content;
+}
+
 /* input:active {
     background-color: rgba(255, 62, 0, 0.2);
 } */

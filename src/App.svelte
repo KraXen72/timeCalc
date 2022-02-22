@@ -1,6 +1,9 @@
 <script>
   import Config from './components/Config.svelte';
-import TimeDelta from './components/TimeDelta.svelte';
+  import MoneyCalc from './components/MoneyCalc.svelte';
+  import TimeDelta from './components/TimeDelta.svelte';
+
+  import { totalSum, config } from './storesAndCommon';
 </script>
 
 <main>
@@ -8,8 +11,11 @@ import TimeDelta from './components/TimeDelta.svelte';
 
   <Config />
   <br>
-  <TimeDelta/>
+  <TimeDelta mode="subtract"/>
   <br>
+  <TimeDelta mode="add"/>
+  <br>
+  <MoneyCalc totalSum={$totalSum.decimal} batchSize={$config.batchSize} perHour={$config.perHour} batchOffset={$config.batchOffset}/>
 
   <p>
     Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte

@@ -1,13 +1,16 @@
 <script>
-    import { config } from "../stores"
+    import { config } from "../storesAndCommon"
     let currConfig = {
         perHour: 8,
-        batchSize: 100
+        batchSize: 100,
+        batchOffset: 0
     }
     const names = {
         perHour: "€/h",
-        batchSize: "€/payout"
+        batchSize: "€/payout",
+        batchOffset: "offset current batch? (€)"
     }
+    $: $config = currConfig
 
 </script>
     <div id="flexer">
