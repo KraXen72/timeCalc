@@ -21,3 +21,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# git subtree push --prefix dist origin gh-pages
