@@ -1,11 +1,17 @@
 <script>
-  import logo from './assets/svelte.png'
-  import Counter from './lib/Counter.svelte'
+  import Config from './components/Config.svelte';
+import Counter from './components/Counter.svelte'
+import Timecounter from './components/Timecounter.svelte';
 </script>
 
 <main>
-  <img src={logo} alt="Svelte Logo" />
-  <h1>Hello world!</h1>
+  <h1>timeCalc</h1>
+
+  <Config />
+  <br>
+  <Timecounter/>
+  <br>
+  <br>
 
   <Counter />
 
@@ -32,14 +38,9 @@
     margin: 0 auto;
   }
 
-  img {
-    height: 16rem;
-    width: 16rem;
-  }
-
   h1 {
     color: #ff3e00;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     font-size: 4rem;
     font-weight: 100;
     line-height: 1.1;
