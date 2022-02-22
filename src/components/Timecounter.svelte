@@ -1,8 +1,11 @@
 <script>
-    // your script goes here
     let startHr
     let endHr
     let deltaStr = "0h0min"
+
+    import dayjs from "dayjs/esm";
+    import customParseFormat from 'dayjs/plugin/customParseFormat';
+    dayjs.extend(customParseFormat)
 
     function _nowTime() {
         let now = new Date()
@@ -15,30 +18,35 @@
         return number.length >= finalWidth ? number : new Array(finalWidth - number.length + 1).join(customCharacter) + number;
     }
 
-    function _timeDelta(start, end) {
-        
+    function _timeDelta() {
+            let startDate = dayjs(startHr.replaceAll(":", "-"), "HH-mm", "sk")
+            let endDate = dayjs(endHr.replaceAll(":", "-"), "HH-mm", "sk")
+            let delta = endDate.diff(startDate, "m")
+            deltaStr = `${zeropad(Math.floor(delta / 60), 2)}h${zeropad(delta % 60, 2)}min`
+
+            console.log({startDate, endDate, delta})    
     }
 </script>
 
-<article>
+<form on:submit|preventDefault={_timeDelta}>
     <span class="timewrap">
         <strong>Start time:</strong>
-        <input type="time" class="timeinp" bind:value={startHr} placeholder="hours"/>
+        <input type="time" name="startTime" class="timeinp" required bind:value={startHr}/>
     </span>
     <span class="timewrap">
         <strong>End time:</strong>
-        <input type="time" class="timeinp" bind:value={endHr} placeholder="hours"/>
-        <button class="nowbtn" title="now" on:click={_nowTime}>⌚</button>
+        <input type="time" name="endTime" class="timeinp" required bind:value={endHr}/>
+        <button class="nowbtn" type="button" title="now" on:click={_nowTime}>⌚</button>
     </span>
     <div class="timewrap">
         <strong>Difference:</strong> {deltaStr}
-        <button class="nowbtn">Calculate</button>
+        <input type="submit" class="nowbtn" value="Calculate">
     </div>
-</article>
+</form>
 
 
 <style>
-    article {
+    form {
         display: flex;
         column-gap: 1.2rem;
         justify-content: center;
