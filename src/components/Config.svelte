@@ -29,6 +29,9 @@
         justify-content: center;
         align-items: center;
         column-gap: 1rem;
+        row-gap: .5rem;
+
+        flex-wrap: wrap;
     }
 
     /* Chrome, Safari, Edge, Opera */
@@ -41,5 +44,9 @@
     /* Firefox */
     input[type="number"] {
         -moz-appearance: textfield;
+    }
+
+    strong {
+        width: 100%;
     }
 </style>

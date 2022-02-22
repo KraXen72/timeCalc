@@ -15,7 +15,9 @@
   <br>
   <TimeDelta mode="add"/>
   <br>
+  <hr>
   <MoneyCalc totalSum={$totalSum.decimal} batchSize={$config.batchSize} perHour={$config.perHour} batchOffset={$config.batchOffset}/>
+  
 
   <p>
     Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
@@ -25,6 +27,10 @@
   <p>
     Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
     the officially supported framework, also powered by Vite!
+  </p>
+
+  <p>
+    made by KraXen72
   </p>
 </main>
 

@@ -71,17 +71,18 @@
     }
 </script>
 
+<hr>
 <form on:submit|preventDefault={calculate}>
-    <span class="timewrap">
+    <span class="timewrap start">
         {#if mode === "subtract"}
-            <strong>Start time:</strong>
+            <strong>Start time:</strong><br>
             <input type="time" name="startTime" class="timeinp" required bind:value={startHr}/>
         {:else}
-            <strong>Total time until now: </strong>
+            <strong>Total time:</strong><br>
             <input type="text" name="startTime" class="timeinp" placeholder="HH:mm" required bind:value={totalHr} autocomplete="off"/>
         {/if} 
     </span>
-    <span class="timewrap">
+    <span class="timewrap end">
         {#if mode === "subtract"}
             <strong>End time:</strong>
             <input type="time" name="endTime" class="timeinp" required bind:value={endHr}/>
@@ -93,12 +94,12 @@
         {/if} 
     </span>
     {#if mode === "subtract"}
-        <div class="timewrap">
+        <div class="timewrap result">
             <input type="submit" class="nowbtn" value="Calculate">
             <strong>Difference:</strong> {deltaStr}
         </div>
     {:else}
-        <div class="timewrap">
+        <div class="timewrap result">
             <input type="submit" class="nowbtn" value="Add">
             <strong>Together:</strong> {addStr}
             <button class="nowbtn" type="button" title="add to the result" on:click={_nextOp}>⏪</button>
@@ -108,5 +109,39 @@
 
 
 <style>
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "start end"
+        "result result" ;
+
+        column-gap: .7rem;
+        row-gap: 1rem;
+        justify-content: baseline !important;
+    }
+    .timewrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        column-gap: .2rem;
+        row-gap: .15rem;
+    }
+
+    .timewrap strong {
+        width: 100%;
+    }
+
+    .timewrap.start {
+        grid-area: start;
+    }
+    .timewrap.end {
+        grid-area: end;
+    }
+    .timewrap.result {
+        grid-area: result;
+        flex-wrap: nowrap;
+    }
     
 </style>
