@@ -14,6 +14,10 @@
         number = number + '';
         return number.length >= finalWidth ? number : new Array(finalWidth - number.length + 1).join(customCharacter) + number;
     }
+
+    function _timeDelta(start, end) {
+        
+    }
 </script>
 
 <article>
