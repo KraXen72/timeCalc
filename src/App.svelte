@@ -1,7 +1,6 @@
 <script>
   import Config from './components/Config.svelte';
-import Counter from './components/Counter.svelte'
-import Timecounter from './components/Timecounter.svelte';
+import TimeDelta from './components/TimeDelta.svelte';
 </script>
 
 <main>
@@ -9,11 +8,8 @@ import Timecounter from './components/Timecounter.svelte';
 
   <Config />
   <br>
-  <Timecounter/>
+  <TimeDelta/>
   <br>
-  <br>
-
-  <Counter />
 
   <p>
     Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte

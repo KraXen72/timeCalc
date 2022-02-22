@@ -1,10 +1,12 @@
 <script>
     import { config } from "../stores"
     let currConfig = {
-        perHour: 8
+        perHour: 8,
+        batchSize: 100
     }
     const names = {
-        perHour: "€/h"
+        perHour: "€/h",
+        batchSize: "€/payout"
     }
 
 </script>
