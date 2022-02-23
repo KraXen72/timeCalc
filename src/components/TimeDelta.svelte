@@ -75,22 +75,27 @@
 <form on:submit|preventDefault={calculate}>
     <span class="timewrap start">
         {#if mode === "subtract"}
-            <strong>Start time:</strong><br>
+            <strong>Start time:</strong>
             <input type="time" name="startTime" class="timeinp" required bind:value={startHr}/>
         {:else}
-            <strong>Total time:</strong><br>
+            <strong>Total time:</strong>
             <input type="text" name="startTime" class="timeinp" placeholder="HH:mm" required bind:value={totalHr} autocomplete="off"/>
         {/if} 
     </span>
     <span class="timewrap end">
         {#if mode === "subtract"}
             <strong>End time:</strong>
-            <input type="time" name="endTime" class="timeinp" required bind:value={endHr}/>
-            <button class="nowbtn" type="button" title="now" on:click={_nowTime}>⌚</button>
+            <span class="singleline">
+                <input type="time" name="endTime" class="timeinp" required bind:value={endHr}/>
+                <button class="nowbtn" type="button" title="now" on:click={_nowTime}>⌚</button>
+            </span>
         {:else}
             <strong>Today's time: </strong>
-            <input type="text" name="startTime" class="timeinp" placeholder="HH:mm" required bind:value={todayHr} autocomplete="off"/>
-            <button class="nowbtn" type="button" title="copy the time from the difference above" on:click={_todayTime}>📅</button>
+            <span class="singleline">
+                <input type="text" name="startTime" class="timeinp" placeholder="HH:mm" required bind:value={todayHr} autocomplete="off"/>
+                <button class="nowbtn" type="button" title="copy the time from the difference above" on:click={_todayTime}>📅</button>
+            </span>
+            
         {/if} 
     </span>
     {#if mode === "subtract"}
@@ -153,10 +158,16 @@
         width: 100% !important;
     }
 
+    .singleline {
+        display: flex;
+        flex-wrap: nowrap;
+        column-gap: .2rem;
+    }
+
     @media only screen and (min-width: 896px) {
         form {
             grid-template-rows: 1fr;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr) minmax(max-content, 2fr);
             grid-template-areas: "start end result"
         }
         .timewrap {
