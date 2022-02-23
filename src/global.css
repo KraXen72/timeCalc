@@ -58,6 +58,27 @@ main {
     padding: .3rem;
 }
 
+@media only screen and (min-width: 768px) {
+    body {
+        min-width: min-content;
+        width: 80vw;
+        text-align: center;
+        margin: 0 auto;
+    }
+}
+@media only screen and (min-width: 800px) {
+    body {
+        width: 80vw;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    body {
+        width: 70vw;
+        max-width: 60rem;
+    }
+}
+
 /* input:active {
     background-color: rgba(255, 62, 0, 0.2);
 } */

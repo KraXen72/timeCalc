@@ -10,11 +10,8 @@
   <h1>timeCalc</h1>
 
   <Config />
-  <br>
   <TimeDelta mode="subtract"/>
-  <br>
   <TimeDelta mode="add"/>
-  <br>
   <hr>
   <MoneyCalc totalSum={$totalSum.decimal} batchSize={$config.batchSize} perHour={$config.perHour} batchOffset={$config.batchOffset}/>
   

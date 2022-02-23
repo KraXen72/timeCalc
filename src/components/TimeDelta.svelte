@@ -88,7 +88,7 @@
             <input type="time" name="endTime" class="timeinp" required bind:value={endHr}/>
             <button class="nowbtn" type="button" title="now" on:click={_nowTime}>⌚</button>
         {:else}
-            <strong>Today's time</strong>
+            <strong>Today's time: </strong>
             <input type="text" name="startTime" class="timeinp" placeholder="HH:mm" required bind:value={todayHr} autocomplete="off"/>
             <button class="nowbtn" type="button" title="copy the time from the difference above" on:click={_todayTime}>📅</button>
         {/if} 
@@ -112,7 +112,7 @@
     form {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
+        grid-template-rows: 1fr 1fr;
         grid-template-areas: "start end"
         "result result" ;
 
@@ -142,6 +142,30 @@
     .timewrap.result {
         grid-area: result;
         flex-wrap: nowrap;
+        justify-content: center;
+        column-gap: 1rem;
+    }
+    .timewrap.result strong {
+        width: max-content;
+    }
+    .timewrap.result .nowbtn {
+        flex-grow: 1;
+        width: 100% !important;
+    }
+
+    @media only screen and (min-width: 896px) {
+        form {
+            grid-template-rows: 1fr;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: "start end result"
+        }
+        .timewrap {
+            flex-wrap: nowrap;
+            column-gap: .2rem;
+        }
+        .timewrap strong {
+            width: max-content
+        }
     }
     
 </style>
